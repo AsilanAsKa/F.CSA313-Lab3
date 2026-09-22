@@ -3,7 +3,7 @@ import { check, sleep } from 'k6';
 
 export const options = {
   vus: 20,
-  duration: '1m',
+  duration: '2m',
 
   thresholds: {
     'http_req_duration{name:cart}': ['p(95)<200'],
