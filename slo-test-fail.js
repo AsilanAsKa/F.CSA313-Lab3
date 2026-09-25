@@ -6,12 +6,23 @@ export const options = {
   duration: '2m',
 
   thresholds: {
-    'http_req_duration{name:cart}': ['p(95)<200'],
-    'http_req_failed{name:pay}': ['rate<0.08'],
-    'checks': ['rate>0.90'],
+    'http_req_duration{name:cart}': [
+      'p(95)<200',
+      'p(99)<300',
+    ],
 
-    // Нэмэлт /report threshold
-   'http_req_duration{name:report}': ['p(95)<100'],
+    'http_req_failed{name:pay}': [
+      'rate<0.08',
+    ],
+
+    'checks': [
+      'rate>0.90',
+    ],
+
+    'http_req_duration{name:report}': [
+      'p(95)<100',
+      'p(99)<500',
+    ],
   },
 };
 
